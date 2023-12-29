@@ -1,9 +1,9 @@
 const { Model, Datatypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class User extends Model {}
+class Category extends Model {}
 
-User.init(
+Category.init(
     {
         id: {
             type: Datatypes.INTEGER,
@@ -11,32 +11,9 @@ User.init(
             primaryKey: true,
             autoIncrement: true,
         },
-        username: {
+        name: {
             type: Datatypes.STRING,
             allowNull: false,
-        },
-        email: {
-            type: Datatypes.STRING,
-            allowNull: false,
-            unique: true,
-            validate: {
-                isEmail: true,
-            },
-        },
-        password: {
-            type: Datatypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [8],
-            },
-        },
-        cart: {
-            type: Datatypes.ARRAY,
-            allowNull: true,
-            references: {
-                model: 'cart',
-                key: 'id',
-            },
         },
     },
     {
@@ -44,6 +21,8 @@ User.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'user',
+        modelName: 'category',
     }
 );
+
+module.exports = Category;
