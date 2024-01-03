@@ -1,5 +1,11 @@
-<section>
-    <div>{{name}}</div>
-    <div>${{price}}</div>
-    <div>{{check_stock stock}}</div>
-</section>
+<div class="col">
+    <div class="card " style="width: 18rem;">
+    {{!-- <img src="..." class="card-img-top" alt="..."> --}}
+    <div class="card-body">
+        <h5 class="card-title">{{name}}</h5>
+        <p class="card-text">${{price}}</p>
+        <p class="card-text">{{check_stock stock}}</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+    </div>
+</div>

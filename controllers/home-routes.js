@@ -22,7 +22,6 @@ router.get('/', async (req, res) => {
 router.get('/product/:id', async (req, res) => {
     try {
         const productData = await Product.findByPk(req.params.id);
-        console.log(productData);
         
         const product = productData.get({ plain: true });
         

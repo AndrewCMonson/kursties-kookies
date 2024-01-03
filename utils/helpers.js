@@ -6,4 +6,12 @@ module.exports = {
             return `Out of Stock`;
         }
     },
+
+    is_featured: (featured) => {
+        if (featured) {
+            return `Featured`;
+        } else {
+            return `Not Featured`;
+        }
+    },
 };

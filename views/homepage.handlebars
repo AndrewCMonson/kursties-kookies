@@ -1,3 +1,8 @@
-{{#each products as |product|}}
-    {{> product-details}}
-{{/each}}
+<section class="container">
+    <div class="row row-cols-auto">
+        {{#each products as |product|}}
+            {{> product-details}}
+        {{/each}}
+    </div>
+
+</section>
