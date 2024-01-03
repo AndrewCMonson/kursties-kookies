@@ -1,0 +1,43 @@
+        body,
+        ul {
+            margin: 15;
+            padding: 0;
+        }
+
+        nav {
+            background-color: #dd6eb8;
+            color: white;
+            padding: 15px;
+        }
+
+
+        ul {
+            list-style: none;
+        }
+
+        ul {
+            float: right;
+        }
+
+        li {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        h1 {
+            background-image:url("../views/cookies733.jpg");
+            width: 900px;
+            height: 150px;
+            background-size: cover;
+        }
+
+        .cards {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        }
+
+        main {
+            
+        }
