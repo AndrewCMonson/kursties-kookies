@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { Product } = require('../models');
 
-const withAuth = require('../utils/auth');
+// const withAuth = require('../utils/auth');
 
 // GET all products for homepage
 router.get('/', async (req, res) => {
@@ -12,7 +12,6 @@ router.get('/', async (req, res) => {
 
         res.render('homepage', {
             products,
-            logged_in: req.session.logged_in,
         });
     } catch (err) {
         res.status(500).json(err);
@@ -23,33 +22,14 @@ router.get('/', async (req, res) => {
 router.get('/product/:id', async (req, res) => {
     try {
         const productData = await Product.findByPk(req.params.id);
-
+        console.log(productData);
+        
         const product = productData.get({ plain: true });
+        
 
-        res.render('product', {
-            ...product,
-            logged_in: req.session.logged_in,
-        });
-    } catch (err) {
-        res.status(500).json(err);
-    }
-});
-
-// GET all products by category
-router.get('/category/:category', async (req, res) => {
-    try {
-        const productData = await Product.findAll({
-            where: {
-                category: req.params.category,
-            },
-        });
-
-        const products = productData.map((product) => product.get({ plain: true }));
-
-        res.render('category', {
-            products,
-            logged_in: req.session.logged_in,
-        });
+        res.render('product',
+            {product}
+        );
     } catch (err) {
         res.status(500).json(err);
     }
