@@ -1,17 +1,17 @@
 module.exports = {
-    check_stock: (stock) => {
-        if (stock > 0) {
-            return `In Stock`;
-        } else {
-            return `Out of Stock`;
-        }
-    },
+	check_stock: stock => {
+		if (stock > 0) {
+			return `In Stock`;
+		} else {
+			return `Out of Stock`;
+		}
+	},
 
-    is_featured: (featured) => {
-        if (featured) {
-            return `Featured`;
-        } else {
-            return `Not Featured`;
-        }
-    },
+	is_featured: product => {
+		if (product.featured) {
+			return true;
+		} else {
+			return false;
+		}
+	},
 };

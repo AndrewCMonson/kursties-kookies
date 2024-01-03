@@ -2,10 +2,10 @@
     <div class="card " style="width: 18rem;">
     {{!-- <img src="..." class="card-img-top" alt="..."> --}}
     <div class="card-body">
-        <h5 class="card-title">{{name}}</h5>
+        <a class="product-link" href="/products/{{id}}"><h5 class="card-title">{{name}}</h5></a>
         <p class="card-text">${{price}}</p>
         <p class="card-text">{{check_stock stock}}</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <a href="/products/{{id}}" class="btn btn-primary">Add to cart</a>
     </div>
     </div>
 </div>

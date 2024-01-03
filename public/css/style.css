@@ -1,0 +1,29 @@
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    text-decoration: none;
+    color: grey;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.products {
+    min-height: 75vh;
+}
+
+.cookie-img{
+    height: 400px;
+    width: 400px;
+}
+
+.product-card {
+    height: 50%;
+}
+

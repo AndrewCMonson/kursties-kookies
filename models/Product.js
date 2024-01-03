@@ -15,6 +15,10 @@ Product.init(
 			type: DataTypes.STRING,
 			allowNull: false,
 		},
+		filename: {
+			type: DataTypes.STRING,
+			allowNull: false,
+		},
 		price: {
 			type: DataTypes.DECIMAL,
 			allowNull: false,
@@ -30,13 +34,15 @@ Product.init(
 				isNumeric: true,
 			},
 		},
-		// category_id: {
-		// 	type: DataTypes.INTEGER,
-		// 	references: {
-		// 		model: 'category',
-		// 		key: 'id',
-		// 	},
-		// },
+		featured: {
+			type: DataTypes.BOOLEAN,
+			allowNull: false,
+			defaultValue: false,
+		},
+		description: {
+			type: DataTypes.TEXT,
+			allowNull: true,
+		},
 	},
 	{
 		sequelize,
