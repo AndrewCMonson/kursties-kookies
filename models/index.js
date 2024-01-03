@@ -1,4 +1,7 @@
-const { User, Product, Cart, Category } = require('./submodels');
+const User = require('./User');
+const Product = require('./Product');
+const Cart = require('./Cart');
+const Category = require('./Category');
 
 Product.belongsTo(Category, {
     foreignKey: 'category_id',
