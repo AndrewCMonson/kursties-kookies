@@ -1,0 +1,14 @@
+<div class="container">
+    <div>
+        <img class="img-fluid cookie-img"src="/images/{{filename}}" alt="{{product_name}}" />
+    </div>
+    <div>
+    {{product_name}}    
+</div>
+<div>
+    {{CartItem.quantity}}
+</div>
+<div>
+    ${{calculate_total price CartItem.quantity}}
+</div>
+</div>

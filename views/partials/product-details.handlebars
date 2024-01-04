@@ -2,7 +2,7 @@
     <div class="card " style="width: 18rem;">
     {{!-- <img src="..." class="card-img-top" alt="..."> --}}
     <div class="card-body">
-        <a class="product-link" href="/products/{{id}}"><h5 class="card-title">{{name}}</h5></a>
+        <a class="product-link" href="/products/{{id}}"><h5 class="card-title">{{product_name}}</h5></a>
         {{#if loggedIn}}
         <p class="card-text">${{price}}</p>
         {{else}}
