@@ -3,13 +3,8 @@
     {{!-- <img src="..." class="card-img-top" alt="..."> --}}
     <div class="card-body">
         <a class="product-link" href="/products/{{id}}"><h5 class="card-title">{{product_name}}</h5></a>
-        {{#if loggedIn}}
         <p class="card-text">${{price}}</p>
-        {{else}}
-        <p class="card-text">Please log in to see price</p>
-        {{/if}}
         <p class="card-text">{{check_stock stock}}</p>
-        <a href="#" class="btn btn-primary">Add to cart</a>
     </div>
     </div>
 </div>

@@ -1,4 +1,5 @@
 module.exports = {
+	// used to check the stock of an item and return a string accordingly
 	check_stock: stock => {
 		if (stock > 0) {
 			return `In Stock`;
@@ -7,14 +8,8 @@ module.exports = {
 		}
 	},
 
-	is_featured: product => {
-		if (product.featured) {
-			return true;
-		} else {
-			return false;
-		}
-	},
 	calculate_total: (price, quantity) => {
-		return price * quantity;
+		let num = price * quantity;
+		return num.toFixed(2);
 	}
 };

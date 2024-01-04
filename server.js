@@ -34,6 +34,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);
 
+app.get('*', (req, res) => {
+    res.render('404');
+});
+
 sequelize.sync({ force:false }).then(() => {
     app.listen(PORT, () => console.log('Now listening'));
 });

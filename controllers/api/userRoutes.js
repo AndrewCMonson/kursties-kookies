@@ -60,6 +60,23 @@ router.post('/login', async (req, res) => {
 	}
 });
 
+// returns a user's data based on their id
+router.get('/:userId', async (req, res) => {
+	try {
+		const userData = await User.findByPk(req.params.userId);
+
+		if (!userData) {
+			return res.status(404).json({ error: 'User not found' });
+		}
+		res.status(200).json(userData);
+	} catch (error) {
+		console.error(error);
+		res.status(500).json({ error: 'Internal server error' });
+	}
+});
+
+
+// return's a user's cart information based on their id
 router.get('/:userId/cart', async (req, res) => {
 	try {
 		const user = await User.findByPk(req.params.userId, {
@@ -82,6 +99,7 @@ router.get('/:userId/cart', async (req, res) => {
 	}
 });
 
+// adds a product to a user's cart
 router.post('/:userId/cart/addItem/:productId', async (req, res) => {
 	try {
 		const user = await User.findByPk(req.params.userId);
@@ -124,6 +142,7 @@ router.post('/:userId/cart/addItem/:productId', async (req, res) => {
 	}
 });
 
+// removes a product from a user's cart
 router.delete('/:userId/cart/removeItem/:productId', async (req, res) => {
 	try {
 		const user = await User.findByPk(req.params.userId);
@@ -153,6 +172,7 @@ router.delete('/:userId/cart/removeItem/:productId', async (req, res) => {
 	}
 });
 
+// allows a user to logout
 router.post('/logout', (req, res) => {
 	if (req.session.loggedIn) {
 		req.session.destroy(() => {

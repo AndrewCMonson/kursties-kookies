@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
         const products = productData.map((product) => product.get({ plain: true }));
 
         res.render('homepage', {
-            products, loggedIn: req.session.loggedIn
+            products, loggedIn: req.session.loggedIn, userId: req.session.user_id
         });
     } catch (err) {
         res.status(500).json(err);
@@ -29,7 +29,7 @@ router.get('/products', async (req, res) => {
         const products = productData.map((product) => product.get({ plain: true }));
 
         res.render('products', {
-            products, loggedIn: req.session.loggedIn
+            products, loggedIn: req.session.loggedIn, userId: req.session.user_id
         });
     } catch (err) {
         res.status(500).json(err);
@@ -41,11 +41,11 @@ router.get('/products/:id', async (req, res) => {
     try {
         const productData = await Product.findByPk(req.params.id);
         
-        const products = productData.get({ plain: true });
+        const product = productData.get({ plain: true });
         
 
         res.render('product',
-            {products, loggedIn: req.session.loggedIn}
+            {product, loggedIn: req.session.loggedIn, userId: req.session.user_id}
         );
     } catch (err) {
         res.status(500).json(err);
@@ -53,8 +53,7 @@ router.get('/products/:id', async (req, res) => {
 });
 
 // GETs and renders a user's cart based on their id
-// TODO implement this route ONLY if user is logged in based on their session ID
-router.get('/:userId/cart', async (req, res) => {
+router.get('/cart/:userId', async (req, res) => {
 	try {
 		const user = await User.findByPk(req.params.userId, {
 			include: {
@@ -70,8 +69,7 @@ router.get('/:userId/cart', async (req, res) => {
 			return res.status(404).json({ error: 'User not found' });
 		}
 
-        const userCart = user.cart.products
-
+        const userCart = user.cart.products;
         const renderedCartItems = userCart.map((product) => product.get({ plain: true }));
 
 

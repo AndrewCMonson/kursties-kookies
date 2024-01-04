@@ -1,3 +1,4 @@
+// handles login and signup forms based on form submission on respective forms
 const handleLogin = async (event) => {
     event.preventDefault();
 
