@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang='en'>
 
 	<head>
@@ -49,16 +50,24 @@
 				</div>
 				<div class='navbar-collapse collapse w-100 order-3 dual-collapse2'>
 					<ul class='navbar-nav ms-auto'>
+						{{#if loggedIn}}
 						<li class='nav-item'>
 							<a class='nav-link' href='/users/cart'><i
 									class='fa-solid fa-cart-shopping'
 								></i>Cart</a>
 						</li>
 						<li class='nav-item'>
+							<a class='nav-link' id="logout" href='/'><i
+									class='fa-solid fa-user'
+								></i>Logout</a>
+						</li>
+						{{else}}
+						<li class='nav-item'>
 							<a class='nav-link' href='/login'><i
 									class='fa-solid fa-user'
 								></i>Login</a>
 						</li>
+						{{/if}}
 					</ul>
 				</div>
 			</div>
@@ -74,5 +83,8 @@
 		integrity='sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL'
 		crossorigin='anonymous'
 	></script>
+	{{#if loggedIn}}
+	<script src="/js/logout.js"></script>
+	{{/if}}
 
 </html>

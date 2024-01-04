@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
         const products = productData.map((product) => product.get({ plain: true }));
 
         res.render('homepage', {
-            products,
+            products, loggedIn: req.session.loggedIn
         });
     } catch (err) {
         res.status(500).json(err);
@@ -29,7 +29,7 @@ router.get('/products', async (req, res) => {
         const products = productData.map((product) => product.get({ plain: true }));
 
         res.render('products', {
-            products,
+            products, loggedIn: req.session.loggedIn
         });
     } catch (err) {
         res.status(500).json(err);
@@ -45,7 +45,7 @@ router.get('/products/:id', async (req, res) => {
         
 
         res.render('product',
-            {product}
+            {product, loggedIn: req.session.loggedIn}
         );
     } catch (err) {
         res.status(500).json(err);
@@ -53,7 +53,10 @@ router.get('/products/:id', async (req, res) => {
 });
 
 router.get('/login', (req, res) => {
-
+    if (req.session.loggedIn) {
+        res.redirect('/');
+        return;
+    }
     res.render('login');
 });
 
