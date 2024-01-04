@@ -1,15 +1,17 @@
 <div class="container">
-    <div>
+    <div class="row"></div>
+    <div class="col">
         <img class="img-fluid cookie-img"src="/images/{{filename}}" alt="{{product_name}}" />
     </div>
-    <div>
-    {{product_name}}    
-</div>
-<div>
+    <div class="col">
+    {{product_name}} 
+    </div>
+    <div class="col">
     {{CartItem.quantity}}
-</div>
-<div>
-    ${{calculate_total price CartItem.quantity}}
-</div>
-    <button>Remove from cart</button>
+    </div>
+    <div class="col">
+        ${{calculate_total price CartItem.quantity}}
+    </div>
+        <button>Remove from cart</button>
+    </div>   
 </div>
