@@ -4,7 +4,7 @@
         <img class="img-fluid cookie-img"src="/images/{{filename}}" alt="{{product_name}}" />
     </div>
     <div class="col">
-    {{product_name}} 
+    {{product_name}}
     </div>
     <div class="col">
     {{CartItem.quantity}}
@@ -12,6 +12,6 @@
     <div class="col">
         ${{calculate_total price CartItem.quantity}}
     </div>
-        <button>Remove from cart</button>
-    </div>   
+        <button class="remove-from-cart" data-product-id="{{id}}">Remove from cart</button>
+    </div>
 </div>

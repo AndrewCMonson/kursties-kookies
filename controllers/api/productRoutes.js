@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Product } = require('../../models');
+// const productController = require('../../controllers/productController');
 
 // The `/api/products` endpoint that returns all products in the api
 router.get('/', async (req, res) => {

@@ -45,7 +45,7 @@ router.get('/products/:id', async (req, res) => {
         
 
         res.render('product',
-            {product, loggedIn: req.session.loggedIn, userId: req.session.user_id}
+            {product, loggedIn: req.session.loggedIn}
         );
     } catch (err) {
         res.status(500).json(err);
@@ -53,9 +53,9 @@ router.get('/products/:id', async (req, res) => {
 });
 
 // GETs and renders a user's cart based on their id
-router.get('/cart/:userId', async (req, res) => {
+router.get('/cart', async (req, res) => {
 	try {
-		const user = await User.findByPk(req.params.userId, {
+		const user = await User.findByPk(req.session.user_id, {
 			include: {
 				model: Cart,
 				include: {
@@ -72,8 +72,8 @@ router.get('/cart/:userId', async (req, res) => {
         const userCart = user.cart.products;
         const renderedCartItems = userCart.map((product) => product.get({ plain: true }));
 
-
-		res.render('cart', { renderedCartItems, loggedIn: req.session.loggedIn });
+        console.log(renderedCartItems);
+		res.render('cart', { renderedCartItems, loggedIn: req.session.loggedIn, });
 
 	} catch (error) {
 		console.error(error);

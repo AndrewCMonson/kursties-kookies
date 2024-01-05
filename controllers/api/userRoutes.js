@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { User, Cart, Product, CartItem } = require('../../models');
+// const productController = require('../../controllers/productController');
 
 // allows a user to sign up and creates a corresponding cart for the user
 router.post('/', async (req, res) => {
@@ -21,6 +22,23 @@ router.post('/', async (req, res) => {
 	} catch (err) {
 		res.status(400).json(err);
 	}
+});
+
+router.get('/', async (req, res) => {
+  try {
+	  const userData = await User.findAll({
+		  include: {
+			  model: Cart,
+			  include: {
+				  model: Product,
+				  through: CartItem,
+			  },
+		  }
+		  });
+    res.status(200).json(userData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 // allows the user to login
@@ -100,9 +118,9 @@ router.get('/:userId/cart', async (req, res) => {
 });
 
 // adds a product to a user's cart
-router.post('/:userId/cart/addItem/:productId', async (req, res) => {
+router.post('/cart/addItem/:productId', async (req, res) => {
 	try {
-		const user = await User.findByPk(req.params.userId);
+		const user = await User.findByPk(req.session.user_id);
 
 		if (!user) {
 			return res.status(404).json({ error: 'User not found' });
@@ -143,9 +161,9 @@ router.post('/:userId/cart/addItem/:productId', async (req, res) => {
 });
 
 // removes a product from a user's cart
-router.delete('/:userId/cart/removeItem/:productId', async (req, res) => {
+router.delete('/cart/removeItem/:productId', async (req, res) => {
 	try {
-		const user = await User.findByPk(req.params.userId);
+		const user = await User.findByPk(req.session.user_id);
 
 		if (!user) {
 			return res.status(404).json({ error: 'User not found' });
