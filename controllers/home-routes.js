@@ -88,7 +88,6 @@ router.get('/cart', async (req, res) => {
 			product.get({ plain: true })
 		);
 
-		console.log(renderedCartItems);
 		res.render('cart', { renderedCartItems, loggedIn: req.session.loggedIn });
 	} catch (error) {
 		console.error(error);
