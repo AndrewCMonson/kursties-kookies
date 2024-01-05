@@ -1,0 +1,10 @@
+<div>
+    <h2 class='text-center p-3'>Featured Products</h2>
+</div>
+<div class="container">
+    <div class="row row-cols-auto products">
+        {{#each products as |product|}}
+            {{> product-details}}
+        {{/each}}
+    </div>
+</div>

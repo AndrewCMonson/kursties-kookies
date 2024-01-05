@@ -1,0 +1,13 @@
+<section>
+   <h1 class="text-center">Shopping Cart</h1> 
+</section>
+<section class="container">
+    <div>
+        {{#each renderedCartItems as |item|}}
+            {{> cart-item-details }}
+        {{/each}}
+    </div>
+    <div>
+        {{userId}}
+    </div>
+</section>
