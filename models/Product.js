@@ -3,11 +3,11 @@ const sequelize = require('../config/connection');
 
 const Product = sequelize.define('product', {
 	id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true,
-      autoIncrement: true,
-    },
+		type: DataTypes.INTEGER,
+		allowNull: false,
+		primaryKey: true,
+		autoIncrement: true,
+	},
 	product_name: {
 		type: DataTypes.STRING,
 		allowNull: false,

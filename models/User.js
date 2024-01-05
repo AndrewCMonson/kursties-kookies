@@ -5,12 +5,12 @@ const bcrypt = require('bcrypt');
 const User = sequelize.define(
 	'user',
 	{
-	    id: {
-      		type: DataTypes.INTEGER,
-      		allowNull: false,
-      		primaryKey: true,
-      		autoIncrement: true,
-    },
+		id: {
+			type: DataTypes.INTEGER,
+			allowNull: false,
+			primaryKey: true,
+			autoIncrement: true,
+		},
 		username: {
 			type: DataTypes.STRING,
 			allowNull: false,
@@ -34,14 +34,17 @@ const User = sequelize.define(
 	},
 	{
 		hooks: {
-			beforeCreate: async (newUserData) => {
+			beforeCreate: async newUserData => {
 				newUserData.password = await bcrypt.hash(newUserData.password, 10);
 				return newUserData;
 			},
-			beforeUpdate: async (updatedUserData) => {
-				updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
+			beforeUpdate: async updatedUserData => {
+				updatedUserData.password = await bcrypt.hash(
+					updatedUserData.password,
+					10
+				);
 				return updatedUserData;
-			  }
+			},
 		},
 	}
 );
