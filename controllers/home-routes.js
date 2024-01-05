@@ -42,10 +42,18 @@ router.get('/products/:id', async (req, res) => {
         const productData = await Product.findByPk(req.params.id);
         
         const product = productData.get({ plain: true });
+
+        const additionalProductData = await Product.findAll({
+            where: {
+                featured: true,
+            }
+        })
+
+        const additionalProducts = additionalProductData.map((product) => product.get({ plain: true }));
         
 
         res.render('product',
-            {product, loggedIn: req.session.loggedIn}
+            {product, additionalProducts, loggedIn: req.session.loggedIn, userId: req.session.user_id}
         );
     } catch (err) {
         res.status(500).json(err);
@@ -71,6 +79,7 @@ router.get('/cart', async (req, res) => {
 
         const userCart = user.cart.products;
         const renderedCartItems = userCart.map((product) => product.get({ plain: true }));
+        const userId = user.id
 
         console.log(renderedCartItems);
 		res.render('cart', { renderedCartItems, loggedIn: req.session.loggedIn, });

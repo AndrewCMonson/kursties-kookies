@@ -1,8 +1,8 @@
-<section>
-    <h2 class='text-center'>Shop All of Our Products!</h2>
-</section>
-<section class="container">
-    <div class="row row-cols-auto">
+<div>
+    <h2 class='text-center p-3'>Shop All of Our Products!</h2>
+</div>
+<section class="container ">
+    <div class="row products justify-content-center align-items-center">
         {{#each products as |product|}}
             {{> product-details}}
         {{/each}}
