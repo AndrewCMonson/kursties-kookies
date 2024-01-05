@@ -43,10 +43,23 @@ router.get('/products/:id', async (req, res) => {
         
         const product = productData.get({ plain: true });
         
+        const additionalProductData = await Product.findAll({
+          where: {
+            featured: true,
+          },
+        });
 
-        res.render('product',
-            {product, loggedIn: req.session.loggedIn, userId: req.session.user_id}
+        const additionalProducts = additionalProductData.map((product) =>
+          product.get({ plain: true })
         );
+
+        res.render("product", {
+          product,
+          additionalProducts,
+          loggedIn: req.session.loggedIn,
+          userId: req.session.user_id,
+        });
+
     } catch (err) {
         res.status(500).json(err);
     }
