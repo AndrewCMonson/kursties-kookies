@@ -93,6 +93,24 @@ router.get('/:userId', async (req, res) => {
 	}
 });
 
+router.get('/:username', async (req, res) => {
+	try {
+		const userData = await User.findOne({
+			where: {
+				username: req.params.username,
+			},
+		});
+
+		if (!userData) {
+			return res.status(404).json({ error: 'User not found' });
+		}
+		res.status(200).json(userData);
+	} catch (error) {
+		console.error(error);
+		res.status(500).json({ error: 'Internal server error' });
+	}
+});
+
 // return's a user's cart information based on their id
 router.get('/:userId/cart', async (req, res) => {
 	try {
