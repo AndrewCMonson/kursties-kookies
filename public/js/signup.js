@@ -1,4 +1,4 @@
-import { addAlert } from './utility.js';
+import { addAlert } from './bootstrapUtils.js';
 
 const handleSignup = async event => {
 	event.preventDefault();

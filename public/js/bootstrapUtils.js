@@ -1,3 +1,4 @@
+// used to append a Bootstrap alert to the DOM
 export const addAlert = (message, type, div) => {
 	const wrapper = document.createElement('div');
 	wrapper.innerHTML = [

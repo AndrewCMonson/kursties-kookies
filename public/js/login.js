@@ -1,4 +1,4 @@
-import { addAlert } from './utility.js';
+import { addAlert } from './bootstrapUtils.js';
 
 // handles login form based on form submission
 const handleLogin = async event => {
@@ -32,6 +32,8 @@ const checkLogin = async response => {
 	} else if (
 		loginMessage.message === 'Incorrect email or password, please try again'
 	) {
+		addAlert('Incorrect email or password', 'danger', alertDiv);
+	} else if(loginMessage.message === 'User not found') {
 		addAlert('Incorrect email or password', 'danger', alertDiv);
 	} else {
 		addAlert(
