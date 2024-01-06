@@ -8,6 +8,7 @@ const handleLogOut = async () => {
 	if (response.ok) {
 		document.location.replace('/login');
 	} else {
+		// TODO add a modal to confirm logout and redirect to homepage
 		alert('Failed to log out');
 	}
 };

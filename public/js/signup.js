@@ -18,8 +18,18 @@ const handleSignup = async event => {
 			headers: { 'Content-Type': 'application/json' },
 		});
 		if (response.ok) {
-			// TODO add a modal to confirm signup and redirect to login
-            document.location.replace('/login');
+			const signUpModal = new bootstrap.Modal(document.getElementById('signUpModal'), {
+				keyboard: false
+			});
+			signUpModal.show();
+
+			const modalCloseBtn = document.getElementById('signUpModalClose');
+
+			modalCloseBtn.addEventListener('click', () => {
+				document.location.replace('/login');
+			});
+			
+            // document.location.replace('/login');
 		} else {
 			addAlert(
 				'Error signing up. If issue persists, contact technical support',
