@@ -1,17 +1,29 @@
-<section>
-   <h1 class="text-center">Shopping Cart</h1> 
-</section>
+<h1 class="text-center">Shopping Cart</h1>
 <section class="container">
-    {{#if renderedCartItems}}
-    <div>
-        {{#each renderedCartItems as |item|}}
+    <div class="row">
+        {{#if renderedCartItems}}
+        <div class="row col products justify-content-center align-items-center">
+            {{#each renderedCartItems as |item|}}
             {{> cart-item-details }}
-        {{/each}}
-    </div>
-    {{else}}
+            {{/each}}
+        </div>
+        {{else}}
         <div class="text-center">
             <h2>Your cart is empty</h2>
             <a href="/products" class="btn btn-primary">Go to products</a>
         </div>
-    {{/if}}
+        {{/if}}
+        <div class="card h-25 col-md-4 checkout-list" style="width: 18rem">
+            <ul class="list-group list-group-flush text-centered">
+                <li class="list-group-item">Subtotal:</li>
+                <li class="list-group-item">Tax:</li>
+                <li class="list-group-item">
+                    <h6>Total:</h6>
+                </li>
+                <li class="list-group-item">
+                    <button class="checkOutButton btn btn-primary">Checkout</button>
+                </li>
+            </ul>
+        </div>
+    </div>
 </section>

@@ -95,6 +95,14 @@ router.get('/cart', async (req, res) => {
 	}
 });
 
+router.get('/signup', (req, res) => {
+	if (req.session.loggedIn) {
+		res.redirect('/');
+		return;
+	}
+	res.render('signup');
+});
+
 // redirects a user to the login page if they are currently logged in and try to access the login page
 router.get('/login', (req, res) => {
 	if (req.session.loggedIn) {
