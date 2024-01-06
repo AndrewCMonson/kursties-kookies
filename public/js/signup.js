@@ -19,6 +19,7 @@ const handleSignup = async event => {
 		});
 		if (response.ok) {
 			// TODO add a modal to confirm signup and redirect to login
+            document.location.replace('/login');
 		} else {
 			addAlert(
 				'Error signing up. If issue persists, contact technical support',
