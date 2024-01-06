@@ -1,7 +1,10 @@
+import { addAlert } from './bootstrapUtils.js';
+
 const addToCart = async event => {
 	event.preventDefault();
 
 	const productId = event.target.getAttribute('data-product-id');
+	const alertDiv = document.getElementById('cartAlertDiv');
 
 	const response = await fetch(`/api/users/cart/addItem/${productId}`, {
 		method: 'POST',
@@ -11,9 +14,9 @@ const addToCart = async event => {
 	});
 
 	if (response.ok) {
-		alert('Added to cart!');
+		addAlert('Added to Cart!', 'success', alertDiv);
 	} else {
-		alert('Failed to add to cart');
+		addAlert('Failed to add to cart. If problem persists, contact technical support', 'danger', alertDiv);
 	}
 };
 
@@ -21,6 +24,7 @@ const removeFromCart = async event => {
 	event.preventDefault();
 
 	const productId = event.target.getAttribute('data-product-id');
+	const alertDiv = document.getElementById('cartAlertDiv');
 
 	const response = await fetch(`/api/users/cart/removeItem/${productId}`, {
 		method: 'DELETE',
