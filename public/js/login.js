@@ -1,6 +1,9 @@
-// handles login and signup forms based on form submission on respective forms
+import { addAlert } from './bootstrapUtils.js';
+
+// handles login form based on form submission
 const handleLogin = async event => {
 	event.preventDefault();
+	const alertDiv = document.getElementById('loginAlertDiv');
 
 	const email = document.querySelector('#inputEmail').value.trim();
 	const password = document.querySelector('#inputPassword').value.trim();
@@ -12,45 +15,34 @@ const handleLogin = async event => {
 			headers: { 'Content-Type': 'application/json' },
 		});
 
-		if (response.ok) {
-			document.location.replace('/');
-		} else {
-			alert('Failed to log in');
-			console.log(response);
-		}
+		checkLogin(response);
+	}
+	if (!email && !password) {
+		addAlert('Please enter an email and password', 'danger', alertDiv);
 	}
 };
 
-const handleSignup = async event => {
-	event.preventDefault();
+// checks if the login was successful and redirects to the homepage
+const checkLogin = async response => {
+	const alertDiv = document.getElementById('loginAlertDiv');
+	const loginMessage = await response.json();
 
-	const username = document.querySelector('#signUpUsername').value.trim();
-	const email = document.querySelector('#signUpEmail').value.trim();
-	const password = document.querySelector('#signUpPassword').value.trim();
-
-	// fetch all users to find if the email is already in use
-	const users = await fetch('/api/users').then(res => res.json());
-	const existingUser = users.find(user => user.email === email);
-
-	if (username.length > 3 && !existingUser && password) {
-		const response = await fetch('/api/users', {
-			method: 'POST',
-			body: JSON.stringify({ username, email, password }),
-			headers: { 'Content-Type': 'application/json' },
-		});
-
-		if (response.ok) {
-			document.location.replace('/');
-		} else {
-			alert('Failed to sign up');
-		}
-	}
-	if (existingUser) {
-		alert('Email already in use');
-		document.location.reload();
+	if (response.ok) {
+		document.location.replace('/');
+	} else if (
+		loginMessage.message === 'Incorrect email or password, please try again'
+	) {
+		addAlert('Incorrect email or password', 'danger', alertDiv);
+	} else if(loginMessage.message === 'User not found') {
+		addAlert('Incorrect email or password', 'danger', alertDiv);
+	} else {
+		addAlert(
+			'Error logging in. If issue persists, contact technical support',
+			'danger',
+			alertDiv
+		);
 	}
 };
 
+// event listeners for login and signup forms
 document.querySelector('.login-form').addEventListener('submit', handleLogin);
-
-document.querySelector('.signup-form').addEventListener('submit', handleSignup);

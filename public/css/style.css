@@ -22,3 +22,17 @@ a:hover {
 	border: solid 0.5px black;
 	border-radius: 2%;
 }
+
+#logOutModalBody {
+	display: none;
+}
+
+@media screen and (max-width: 640px) {
+	.hiddenDiv {
+		display: none;
+	}
+	.sign-up-form {
+		width: 100%;
+	}
+}
+

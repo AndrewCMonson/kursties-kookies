@@ -9,7 +9,7 @@
 			<a class='product-link' href='/products/{{id}}'><h5
 					class='card-title'
 				>{{product_name}}</h5></a>
-			<p class='card-text'>${{calculate_total price CartItem.quantity}}</p>
+			<p class='card-text' id="{{calculate_total price CartItem.quantity}}">${{calculate_total price CartItem.quantity}}</p>
 			<p class='card-text'>Amount in cart: {{CartItem.quantity}} dozen</p>
 			<button
 				class='remove-from-cart btn btn-primary'

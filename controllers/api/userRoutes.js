@@ -53,7 +53,7 @@ router.post('/login', async (req, res) => {
 		if (!userData) {
 			res
 				.status(400)
-				.json({ message: 'Incorrect email or password, please try again' });
+				.json({ message: 'User not found' });
 			return;
 		}
 
@@ -82,6 +82,24 @@ router.post('/login', async (req, res) => {
 router.get('/:userId', async (req, res) => {
 	try {
 		const userData = await User.findByPk(req.params.userId);
+
+		if (!userData) {
+			return res.status(404).json({ error: 'User not found' });
+		}
+		res.status(200).json(userData);
+	} catch (error) {
+		console.error(error);
+		res.status(500).json({ error: 'Internal server error' });
+	}
+});
+
+router.get('/:username', async (req, res) => {
+	try {
+		const userData = await User.findOne({
+			where: {
+				username: req.params.username,
+			},
+		});
 
 		if (!userData) {
 			return res.status(404).json({ error: 'User not found' });

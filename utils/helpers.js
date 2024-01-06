@@ -13,5 +13,7 @@ module.exports = {
 	calculate_total: (price, quantity) => {
 		let num = price * quantity;
 		return num.toFixed(2);
-	}
+	},
+	// used to calculate the total price of an order
+	// TODO: add a checkout feature that will calculate the total price of an order
 };
