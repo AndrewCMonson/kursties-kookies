@@ -1,9 +1,14 @@
-<h1 class="text-center">Shopping Cart</h1>
-<div class="row">
-    <h3 class="text-center col">Total (with tax): ${{calculate_order_total renderedCartItems}}</h3>
-    <div class="text-center">
-        <button class="btn btn-primary col" id="checkoutBtn">Checkout</button>
+<div class="container">
+    <div class="d-flex flex-wrap">
+    <h1 class="text-center  mx-auto my-auto">Shopping Cart</h1>
+    {{#if renderedCartItems}}
+    <div class="d-flex flex-wrap justify-content-around align-items-center mx-auto my-auto">
+        <h3 class="text-center mx-auto my-auto pr-3">Total (with tax): ${{calculate_order_total renderedCartItems}}</h3>
+        <button class="btn btn-primary" id="checkoutBtn">Checkout</button>
+        
+    {{/if}}
     </div>
+    
 </div>
 
 <div class="row justify-content-center pt-3">
@@ -20,3 +25,5 @@
         </div>
         {{/if}} 
 </div>
+</div>
+

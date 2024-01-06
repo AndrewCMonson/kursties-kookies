@@ -8,11 +8,7 @@ a:hover {
 	color: grey;
 }
 
-.content {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-}
+
 
 .checkout-list {
 	max-height: 25%;
