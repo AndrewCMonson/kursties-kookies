@@ -17,10 +17,22 @@
 				<label for='inputPassword' class='form-label'>Password</label>
 				<input type='password' class='form-control' id='inputPassword' />
 			</div>
-			<button type='submit' class='btn btn-primary'>Submit</button>
+			<div id="loginAlertDiv"></div>
+			<button type='submit' class='btn btn-primary' id="loginBtn">Submit</button>
 		</form>
 		<form class='col signup-form'>
 			<h1>Sign Up</h1>
+			<div class='mb-3'>
+				<label for='signUpEmail' class='col-sm-2 col-form-label'>Email address</label>
+				<input
+					type='text'
+					class='form-control form-control-sm'
+					id='signUpEmail'
+					aria-describedby='emailHelp'
+				/>
+				<div id='emailHelp' class='form-text'>We'll never share your email with
+					anyone else.</div>
+			</div>
 			<div class='mb-3'>
 				<label
 					for='signUpUsername'
@@ -34,17 +46,6 @@
 				/>
 			</div>
 			<div class='mb-3'>
-				<label for='signUpEmail' class='col-sm-2 col-form-label'>Email address</label>
-				<input
-					type='text'
-					class='form-control form-control-sm'
-					id='signUpEmail'
-					aria-describedby='emailHelp'
-				/>
-				<div id='emailHelp' class='form-text'>We'll never share your email with
-					anyone else.</div>
-			</div>
-			<div class='mb-3'>
 				<label for='signUpPassword' class='form-label'>Password</label>
 				<input type='password' class='form-control' id='signUpPassword' />
 			</div>
@@ -52,7 +53,7 @@
 				<label for='confirmPassword' class='form-label'>Confirm Password</label>
 				<input type='password' class='form-control' id='confirmPassword' />
 			</div>
-			<div id='alertDiv'></div>
+			<div id='signUpAlertDiv'></div>
 			<button
 				type='submit'
 				class='btn btn-primary'
