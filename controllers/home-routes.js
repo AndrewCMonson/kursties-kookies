@@ -84,11 +84,18 @@ router.get('/cart', async (req, res) => {
 		}
 
 		const userCart = user.cart.products;
+
+		const cartSubTotal = userCart.reduce((total, product) => {
+			return total + product.price * product.CartItem.quantity;
+		}, 0);
+
+		const cartTotal = cartSubTotal * 1.07;
+
 		const renderedCartItems = userCart.map(product =>
 			product.get({ plain: true })
 		);
 
-		res.render('cart', { renderedCartItems, loggedIn: req.session.loggedIn });
+		res.render('cart', { renderedCartItems, loggedIn: req.session.loggedIn, cartTotal });
 	} catch (error) {
 		console.error(error);
 		res.status(500).json({ error: 'Internal server error' });
