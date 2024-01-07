@@ -22,3 +22,13 @@ a:hover {
 	border: solid 0.5px black;
 	border-radius: 2%;
 }
+
+.carousel {
+	width: 100%;
+}
+
+.carousel-title,
+.carousel-text {
+	color: #fff;
+    text-shadow: 2px 2px 4px #000000;
+}
