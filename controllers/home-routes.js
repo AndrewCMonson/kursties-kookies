@@ -95,6 +95,11 @@ router.get('/cart', async (req, res) => {
 	}
 });
 
+router.get('/checkout', async (req, res) => {
+	res.render('checkout', { loggedIn: req.session.loggedIn });
+});
+
+
 router.get('/signup', (req, res) => {
 	if (req.session.loggedIn) {
 		res.redirect('/');

@@ -1,29 +1,27 @@
 <div class="container">
     <div class="d-flex flex-wrap">
-    <h1 class="text-center  mx-auto my-auto">Shopping Cart</h1>
-    {{#if renderedCartItems}}
-    <div class="d-flex flex-wrap justify-content-around align-items-center mx-auto my-auto">
-        <h3 class="text-center mx-auto my-auto pr-3">Total (with tax): ${{calculate_order_total renderedCartItems}}</h3>
-        <button class="btn btn-primary" id="checkoutBtn">Checkout</button>
-        
-    {{/if}}
-    </div>
-    
-</div>
-
-<div class="row justify-content-center pt-3">
+        <h1 class="text-center  mx-auto my-auto">Shopping Cart</h1>
         {{#if renderedCartItems}}
-        <div class="row col products justify-content-around align-items-center">
-            {{#each renderedCartItems as |item|}}
-            {{> cart-item-details }}
-            {{/each}}
+        <div class="d-flex flex-wrap justify-content-around align-items-center mx-auto my-auto">
+            <h3 class="text-center mx-auto my-auto pr-3">Total (with tax): ${{calculate_order_total renderedCartItems}}</h3>
+            <a href="/checkout"><button class="btn btn-primary" id="checkoutBtn">Checkout</button></a>
+        {{/if}}
         </div>
-        {{else}}
-        <div class="text-center">
-            <h2>Your cart is empty</h2>
-            <a href="/products" class="btn btn-outline-dark">Go to products</a>
-        </div>
-        {{/if}} 
-</div>
+    </div>
+
+    <div class="row justify-content-center pt-3">
+            {{#if renderedCartItems}}
+            <div class="row col products justify-content-around align-items-center">
+                {{#each renderedCartItems as |item|}}
+                {{> cart-item-details }}
+                {{/each}}
+            </div>
+            {{else}}
+            <div class="text-center">
+                <h2>Your cart is empty</h2>
+                <a href="/products" class="btn btn-outline-dark">Go to products</a>
+            </div>
+            {{/if}} 
+    </div>
 </div>
 
