@@ -1,4 +1,33 @@
 <section>
+<div class="carousel">
+    <a class="carousel-item" href="#one!"><img src="/images/01-chocolate-chip.jpg"></a>
+    <a class="carousel-item" href="#two!"><img src="/images/fullsizeoutput_eeb-768x1024.jpeg"></a>
+    
+</div>
+
+<script>
+        document.addEventListener('DOMContentLoaded', function () {
+        var elems = document.querySelector('.carousel');
+        var instances = M.Carousel.init(elems);
+
+        function nextSlide(){
+            var instance = M.Carousel.getInstance(elems);
+            instance.next();
+        }
+    
+    var intervalId = setInterval(nextSlide, 4500);
+    });
+</script>
+
+<style>
+    .carousel{
+        height: 400px !important;
+    }
+</style>
+ 
+</section>
+
+<section>
     <h2 class='text-center'>Featured Products</h2>
 </section>
 <section class="container">
@@ -8,3 +37,4 @@
         {{/each}}
     </div>
 </section>
+
