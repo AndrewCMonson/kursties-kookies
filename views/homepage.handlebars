@@ -1,30 +1,30 @@
 <section>
-<div class="carousel">
-    <a class="carousel-item" href="#one!"><img src="/images/01-chocolate-chip.jpg"></a>
-    <a class="carousel-item" href="#two!"><img src="/images/fullsizeoutput_eeb-768x1024.jpeg"></a>
-    
-</div>
+    <div class="carousel">
+        <a class="carousel-item" href="#one!"><img src="/images/01-chocolate-chip.jpg"></a>
+        <a class="carousel-item" href="#two!"><img src="/images/fullsizeoutput_eeb-768x1024.jpeg"></a>
 
-<script>
+    </div>
+
+    <script>
         document.addEventListener('DOMContentLoaded', function () {
-        var elems = document.querySelector('.carousel');
-        var instances = M.Carousel.init(elems);
+            var elems = document.querySelector('.carousel');
+            var instances = M.Carousel.init(elems);
 
-        function nextSlide(){
-            var instance = M.Carousel.getInstance(elems);
-            instance.next();
+            function nextSlide() {
+                var instance = M.Carousel.getInstance(elems);
+                instance.next();
+            }
+
+            var intervalId = setInterval(nextSlide, 4500);
+        });
+    </script>
+
+    <style>
+        .carousel {
+            height: 400px !important;
         }
-    
-    var intervalId = setInterval(nextSlide, 4500);
-    });
-</script>
+    </style>
 
-<style>
-    .carousel{
-        height: 400px !important;
-    }
-</style>
- 
 </section>
 
 <section>
@@ -33,8 +33,7 @@
 <section class="container">
     <div class="row row-cols-auto products">
         {{#each products as |product|}}
-            {{> product-details}}
+        {{> product-details}}
         {{/each}}
     </div>
 </section>
-
