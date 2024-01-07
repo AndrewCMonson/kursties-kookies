@@ -29,7 +29,6 @@ const handleSignup = async event => {
 				document.location.replace('/login');
 			});
 			
-            // document.location.replace('/login');
 		} else {
 			addAlert(
 				'Error signing up. If issue persists, contact technical support',

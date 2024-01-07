@@ -34,7 +34,7 @@ const removeFromCart = async event => {
 	});
 
 	if (response.ok) {
-		alert('Deleted From Cart!');
+		alert('Deleted From Cart!'); // TODO: add bootstrap modal
 		document.location.reload();
 	} else {
 		alert('Failed to remove from cart');

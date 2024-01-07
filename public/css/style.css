@@ -1,3 +1,7 @@
+body {
+	background-color: #FAF9F6;
+}
+
 a {
 	text-decoration: none;
 	color: black;
@@ -8,7 +12,10 @@ a:hover {
 	color: grey;
 }
 
-
+.productImage:hover {
+	background-color: black;
+	opacity: 0.5;
+}
 
 .checkout-list {
 	max-height: 25%;
