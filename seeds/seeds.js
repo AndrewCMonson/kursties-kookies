@@ -3,13 +3,13 @@ const seedProducts = require('./product');
 const seedUsers = require('./users');
 
 const seedDatabase = async () => {
-    await sequelize.sync({ force: true });
+	await sequelize.sync({ force: true });
 
-    await seedProducts();
+	await seedProducts();
 
-    await seedUsers();
+	await seedUsers();
 
-    process.exit(0);
+	process.exit(0);
 };
 
 seedDatabase();

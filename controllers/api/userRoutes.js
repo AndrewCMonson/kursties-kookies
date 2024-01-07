@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { User, Cart, Product, CartItem } = require('../../models');
+// const productController = require('../../controllers/productController');
 
 // allows a user to sign up and creates a corresponding cart for the user
 router.post('/', async (req, res) => {
@@ -20,6 +21,23 @@ router.post('/', async (req, res) => {
 		});
 	} catch (err) {
 		res.status(400).json(err);
+	}
+});
+
+router.get('/', async (req, res) => {
+	try {
+		const userData = await User.findAll({
+			include: {
+				model: Cart,
+				include: {
+					model: Product,
+					through: CartItem,
+				},
+			},
+		});
+		res.status(200).json(userData);
+	} catch (err) {
+		res.status(500).json(err);
 	}
 });
 
@@ -75,7 +93,6 @@ router.get('/:userId', async (req, res) => {
 	}
 });
 
-
 // return's a user's cart information based on their id
 router.get('/:userId/cart', async (req, res) => {
 	try {
@@ -100,9 +117,9 @@ router.get('/:userId/cart', async (req, res) => {
 });
 
 // adds a product to a user's cart
-router.post('/:userId/cart/addItem/:productId', async (req, res) => {
+router.post('/cart/addItem/:productId', async (req, res) => {
 	try {
-		const user = await User.findByPk(req.params.userId);
+		const user = await User.findByPk(req.session.user_id);
 
 		if (!user) {
 			return res.status(404).json({ error: 'User not found' });
@@ -122,18 +139,18 @@ router.post('/:userId/cart/addItem/:productId', async (req, res) => {
 
 		const cartItem = await CartItem.findOne({
 			where: {
-			  cart_id: cart.id,
-			  product_id: product.id,
+				cart_id: cart.id,
+				product_id: product.id,
 			},
-		  });
-	  
-		  if (cartItem) {
+		});
+
+		if (cartItem) {
 			// If the product is in the cart, increment the quantity
 			await cartItem.increment('quantity');
-		  } else {
+		} else {
 			// If the product is not in the cart, create a new CartItem with quantity 1
 			await cart.addProduct(product, { through: { quantity: 1 } });
-		  }
+		}
 
 		res.status(200).json({ message: 'Product added to cart' });
 	} catch (error) {
@@ -143,9 +160,9 @@ router.post('/:userId/cart/addItem/:productId', async (req, res) => {
 });
 
 // removes a product from a user's cart
-router.delete('/:userId/cart/removeItem/:productId', async (req, res) => {
+router.delete('/cart/removeItem/:productId', async (req, res) => {
 	try {
-		const user = await User.findByPk(req.params.userId);
+		const user = await User.findByPk(req.session.user_id);
 
 		if (!user) {
 			return res.status(404).json({ error: 'User not found' });

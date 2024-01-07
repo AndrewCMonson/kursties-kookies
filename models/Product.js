@@ -2,6 +2,12 @@ const { DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 const Product = sequelize.define('product', {
+	id: {
+		type: DataTypes.INTEGER,
+		allowNull: false,
+		primaryKey: true,
+		autoIncrement: true,
+	},
 	product_name: {
 		type: DataTypes.STRING,
 		allowNull: false,
@@ -28,6 +34,10 @@ const Product = sequelize.define('product', {
 	featured: {
 		type: DataTypes.BOOLEAN,
 		defaultValue: false,
+	},
+	description: {
+		type: DataTypes.TEXT,
+		allowNull: false,
 	},
 });
 

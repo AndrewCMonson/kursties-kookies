@@ -1,10 +1,12 @@
-<div class="col">
-    <div class="card " style="width: 18rem;">
-    {{!-- <img src="..." class="card-img-top" alt="..."> --}}
-    <div class="card-body">
-        <a class="product-link" href="/products/{{id}}"><h5 class="card-title">{{product_name}}</h5></a>
-        <p class="card-text">${{price}}</p>
-        <p class="card-text">{{check_stock stock}}</p>
-    </div>
-    </div>
+<div class='col product-card pb-3'>
+	<div class='card mx-auto' style='width: 18rem;'>
+		<img src='/images/{{filename}}' class='card-img-top' alt='...' />
+		<div class='card-body'>
+			<a class='product-link' href='/products/{{id}}'><h5
+					class='card-title d-inline-block text-truncate'
+				>{{product_name}}</h5></a>
+			<p class='card-text'>${{price}}/dozen</p>
+			<p class='card-text'>{{check_stock stock}}</p>
+		</div>
+	</div>
 </div>

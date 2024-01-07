@@ -2,9 +2,16 @@
    <h1 class="text-center">Shopping Cart</h1> 
 </section>
 <section class="container">
+    {{#if renderedCartItems}}
     <div>
         {{#each renderedCartItems as |item|}}
             {{> cart-item-details }}
         {{/each}}
     </div>
+    {{else}}
+        <div class="text-center">
+            <h2>Your cart is empty</h2>
+            <a href="/products" class="btn btn-primary">Go to products</a>
+        </div>
+    {{/if}}
 </section>
