@@ -1,3 +1,7 @@
+body {
+	background-color: #FAF9F6;
+}
+
 a {
 	text-decoration: none;
 	color: black;
@@ -8,10 +12,9 @@ a:hover {
 	color: grey;
 }
 
-.content {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
+.productImage:hover {
+	background-color: black;
+	opacity: 0.5;
 }
 
 .checkout-list {
@@ -23,6 +26,15 @@ a:hover {
 	border-radius: 2%;
 }
 
+.carousel {
+	width: 100%;
+}
+
+.carousel-title,
+.carousel-text {
+	color: #fff;
+    text-shadow: 2px 2px 4px #000000;
+}
 #logOutModalBody {
 	display: none;
 }

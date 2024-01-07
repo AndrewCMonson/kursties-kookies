@@ -1,30 +1,29 @@
-<h1 class="text-center">Shopping Cart</h1>
-<section class="container">
-    <div class="row">
+<div class="container">
+    <div class="d-flex flex-wrap">
+    <h1 class="text-center  mx-auto my-auto">Shopping Cart</h1>
+    {{#if renderedCartItems}}
+    <div class="d-flex flex-wrap justify-content-around align-items-center mx-auto my-auto">
+        <h3 class="text-center mx-auto my-auto pr-3">Total (with tax): ${{calculate_order_total renderedCartItems}}</h3>
+        <button class="btn btn-primary" id="checkoutBtn">Checkout</button>
+        
+    {{/if}}
+    </div>
+    
+</div>
+
+<div class="row justify-content-center pt-3">
         {{#if renderedCartItems}}
-        <div class="row col products justify-content-center align-items-center">
+        <div class="row col products justify-content-around align-items-center">
             {{#each renderedCartItems as |item|}}
             {{> cart-item-details }}
             {{/each}}
         </div>
-        <div class="card h-25 col-md-4 checkout-list" style="width: 18rem">
-            <ul class="list-group list-group-flush text-centered">
-                <li class="list-group-item">Subtotal:</li>
-                <li class="list-group-item">Tax:</li>
-                <li class="list-group-item">
-                    <h6>Total:</h6>
-                </li>
-                <li class="list-group-item">
-                    <button class="checkOutButton btn btn-primary">Checkout</button>
-                </li>
-            </ul>
-        </div>
         {{else}}
         <div class="text-center">
             <h2>Your cart is empty</h2>
-            <a href="/products" class="btn btn-primary">Go to products</a>
+            <a href="/products" class="btn btn-outline-dark">Go to products</a>
         </div>
-        {{/if}}
-        
-    </div>
-</section>
+        {{/if}} 
+</div>
+</div>
+
