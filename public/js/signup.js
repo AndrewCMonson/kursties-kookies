@@ -1,4 +1,5 @@
 import { addAlert } from './bootstrapUtils.js';
+import { sendSignUpEmail } from './mail.js';
 
 const handleSignup = async event => {
 	event.preventDefault();
@@ -28,6 +29,8 @@ const handleSignup = async event => {
 			modalCloseBtn.addEventListener('click', () => {
 				document.location.replace('/login');
 			});
+
+			sendSignUpEmail(email, username);
 			
 		} else {
 			addAlert(

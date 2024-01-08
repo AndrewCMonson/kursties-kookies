@@ -10,4 +10,3 @@ export const addAlert = (message, type, div) => {
 
 	div.append(wrapper);
 };
-
