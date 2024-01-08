@@ -89,7 +89,8 @@ a:hover {
 	color: #fff;
 	text-shadow: 2px 2px 4px #000000;
 }
-#logOutModalBody {
+#logOutModalBody,
+#cartDeleteModalBody {
 	display: none;
 }
 
@@ -97,7 +98,5 @@ a:hover {
 	.hiddenDiv {
 		display: none;
 	}
-	.sign-up-form {
-		width: 100%;
-	}
+	
 }
