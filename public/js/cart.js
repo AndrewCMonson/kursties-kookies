@@ -15,16 +15,19 @@ const addToCart = async event => {
 
 	if (response.ok) {
 		addAlert('Added to Cart!', 'success', alertDiv);
+	} else if (response.statusText === 'Not Found') {
+		addAlert('Please log in to add to cart', 'danger', alertDiv);
 	} else {
-		addAlert('Failed to add to cart. If problem persists, contact technical support', 'danger', alertDiv);
+		addAlert(
+			'Failed to add to cart. If problem persists, contact technical support',
+			'danger',
+			alertDiv
+		);
 	}
 };
 
-const removeFromCart = async event => {
-	event.preventDefault();
-
-	const productId = event.target.getAttribute('data-product-id');
-	const alertDiv = document.getElementById('cartAlertDiv');
+const removeFromCart = async productId => {
+	// const productId = event.target.getAttribute('data-product-id');
 
 	const response = await fetch(`/api/users/cart/removeItem/${productId}`, {
 		method: 'DELETE',
@@ -34,15 +37,61 @@ const removeFromCart = async event => {
 	});
 
 	if (response.ok) {
-		alert('Deleted From Cart!'); // TODO: add bootstrap modal
 		document.location.reload();
 	} else {
-		alert('Failed to remove from cart');
+		removeFromCartFail();
 	}
 };
 
+const handleDeleteItem = async event => {
+	event.preventDefault();
+
+	const productId = event.target.getAttribute('data-product-id');
+
+	const cartDeleteModal = new bootstrap.Modal(
+		document.getElementById('cartDeleteModal'),
+		{
+			keyboard: false,
+		}
+	);
+	cartDeleteModal.show();
+
+	const cartDeleteConfirm = document.getElementById('cartDeleteConfirm');
+	const cartDeleteReject = document.getElementById('cartDeleteReject');
+
+	cartDeleteConfirm.addEventListener('click', () => {
+		removeFromCart(productId);
+	});
+	cartDeleteReject.addEventListener('click', () => {
+		cartDeleteModal.hide();
+	});
+};
+
+const removeFromCartFail = () => {
+	const cartDeleteModal = new bootstrap.Modal(
+		document.getElementById('cartDeleteModal'),
+		{
+			keyboard: false,
+		}
+	);
+
+	const modalClose = document.getElementById('cartDeleteReject');
+	document.getElementById('cartDeleteReject').innerHTML = 'Close';
+	document.getElementById('cartDeleteConfirm').style.display = 'none';
+	document.getElementById('cartDeleteModalLabel').innerHTML =
+		'Remove From Cart Failed';
+	document.getElementById('cartDeleteModalBody').innerHTML =
+		'Failed to remove from cart. Please try again. If issue persists, contact technical support';
+
+	cartDeleteModal.show();
+
+	modalClose.addEventListener('click', () => {
+		cartDeleteModal.hide();
+	});
+};
+
 document.querySelectorAll('.remove-from-cart').forEach(button => {
-	button.addEventListener('click', removeFromCart);
+	button.addEventListener('click', handleDeleteItem);
 });
 
 document.querySelectorAll('.addToCartButton').forEach(button => {
