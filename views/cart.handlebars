@@ -1,15 +1,13 @@
-<div class="container">
+{{!-- <div class="container">
     <div class="d-flex flex-wrap">
         <h1 class="text-center  mx-auto my-auto">Shopping Cart</h1>
         {{#if renderedCartItems}}
         <div class="d-flex flex-wrap justify-content-around align-items-center mx-auto my-auto">
             <h3 class="text-center mx-auto my-auto pr-3">Total (with tax): ${{cartTotal}}</h3>
             <a href="/checkout"><button class="btn btn-primary" id="checkoutBtn">Checkout</button></a>
-        {{/if}}
+            {{/if}}
         </div>
-    </div>
-
-    <div class="row justify-content-center pt-3">
+        <div class="row justify-content-center pt-3">
             {{#if renderedCartItems}}
             <div class="row col products justify-content-around align-items-center">
                 {{#each renderedCartItems as |item|}}
@@ -21,7 +19,36 @@
                 <h2>Your cart is empty</h2>
                 <a href="/products" class="btn btn-outline-dark">Go to products</a>
             </div>
-            {{/if}} 
+            {{/if}}
+        </div>
+    </div>
+</div> --}}
+
+<div class=>
+    <div class="d-flex flex-column align-items-center mb-3">
+        <h1 class='text-center p-3'>Shopping Cart</h1>
+        {{#if renderedCartItems}}
+        <div class="d-flex ">
+                <ul class="list-group">
+                    <li class="list-group-item">Total (with tax): ${{cartTotal}}</li>
+                    <li class="list-group-item text-center"><a href="/checkout"><button class="btn btn-primary" id="checkoutBtn">Checkout</button></a></li>
+                </ul>
+        </div>
+        {{/if}}
+    </div>
+    
+    <div class="d-flex flex-wrap justify-content-around">
+        {{#if renderedCartItems}}
+        <div class="row col products justify-content-around align-items-center max-width-75">
+            {{#each renderedCartItems as |item|}}
+            {{> cart-item-details }}
+            {{/each}}
+        </div>
+        {{else}}
+        <div class="text-center">
+            <h2>Your cart is empty</h2>
+            <a href="/products" class="btn btn-outline-dark">Go to products</a>
+        </div>
+        {{/if}}
     </div>
 </div>
-

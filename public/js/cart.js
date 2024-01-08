@@ -13,9 +13,14 @@ const addToCart = async event => {
 		},
 	});
 
+
 	if (response.ok) {
 		addAlert('Added to Cart!', 'success', alertDiv);
-	} else {
+	} 
+	else if (response.statusText === 'Not Found') {
+		addAlert('Please log in to add to cart', 'danger', alertDiv);
+	} 
+	else {
 		addAlert('Failed to add to cart. If problem persists, contact technical support', 'danger', alertDiv);
 	}
 };

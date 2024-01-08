@@ -163,10 +163,8 @@ router.post('/cart/addItem/:productId', async (req, res) => {
 		});
 
 		if (cartItem) {
-			// If the product is in the cart, increment the quantity
 			await cartItem.increment('quantity');
 		} else {
-			// If the product is not in the cart, create a new CartItem with quantity 1
 			await cart.addProduct(product, { through: { quantity: 1 } });
 		}
 

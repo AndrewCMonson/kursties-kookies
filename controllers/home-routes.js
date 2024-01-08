@@ -89,7 +89,7 @@ router.get('/cart', async (req, res) => {
 			return total + product.price * product.CartItem.quantity;
 		}, 0);
 
-		const cartTotal = cartSubTotal * 1.07;
+		const cartTotal = (cartSubTotal * 1.07).toFixed(2);
 
 		const renderedCartItems = userCart.map(product =>
 			product.get({ plain: true })

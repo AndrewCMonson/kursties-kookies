@@ -1,15 +1,69 @@
-body {
-	background-color: #FAF9F6;
-}
+
 
 a {
 	text-decoration: none;
 	color: black;
 }
 
+
 a:hover {
 	text-decoration: none;
 	color: grey;
+}
+
+
+
+.homepage {
+	animation: fadeIn 2s;
+	-webkit-animation: fadeIn 2s;
+	-moz-animation: fadeIn 2s;
+	-o-animation: fadeIn 2s;
+	-ms-animation: fadeIn 2s;
+}
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@-moz-keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@-webkit-keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@-o-keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@-ms-keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
 }
 
 .productImage:hover {
@@ -33,7 +87,7 @@ a:hover {
 .carousel-title,
 .carousel-text {
 	color: #fff;
-    text-shadow: 2px 2px 4px #000000;
+	text-shadow: 2px 2px 4px #000000;
 }
 #logOutModalBody {
 	display: none;
@@ -47,4 +101,3 @@ a:hover {
 		width: 100%;
 	}
 }
-
