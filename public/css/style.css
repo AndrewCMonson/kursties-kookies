@@ -1,17 +1,28 @@
 body {
 	background-color: #FAF9F6;
+	color: #e3b6be;
 }
-
 a {
-	text-decoration: none;
-	color: black;
+    color: #e3b6be; 
 }
 
 a:hover {
-	text-decoration: none;
-	color: grey;
+    color: rgba(255, 255, 255, 0.1); 
 }
 
+a:visited {
+    color: #e3b6be; 
+}
+p {
+    color: #e3b6be; 
+}
+.form-text{
+color:#e3b6be;
+}
+
+.list-group-item {
+	color:#e3b6be
+}
 .productImage:hover {
 	background-color: black;
 	opacity: 0.5;
@@ -38,6 +49,12 @@ a:hover {
 #logOutModalBody {
 	display: none;
 }
+footer {
+    height: 90px; 
+	padding: 10px;
+	text-align: center;
+}
+
 
 @media screen and (max-width: 640px) {
 	.hiddenDiv {
