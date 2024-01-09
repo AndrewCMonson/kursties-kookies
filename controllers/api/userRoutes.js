@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { User, Cart, Product, CartItem } = require('../../models');
+const withAuth = require('../../utils/auth');
 // const productController = require('../../controllers/productController');
 
 // allows a user to sign up and creates a corresponding cart for the user
@@ -65,6 +66,18 @@ router.post('/login', async (req, res) => {
 				.json({ message: 'Incorrect email or password, please try again' });
 			return;
 		}
+		if (userData.isAdmin) {
+			req.session.save(() => {
+				req.session.loggedIn = true;
+				req.session.user_id = userData.id;
+				req.session.isAdmin = true;
+
+				res
+					.status(200)
+					.json({ user: userData, message: 'You are now logged in!' });
+			});
+			return;
+		}
 		req.session.save(() => {
 			req.session.loggedIn = true;
 			req.session.user_id = userData.id;
@@ -79,7 +92,7 @@ router.post('/login', async (req, res) => {
 });
 
 // returns a user's data based on their id
-router.get('/:userId', async (req, res) => {
+router.get('/:userId', withAuth, async (req, res) => {
 	try {
 		const userData = await User.findByPk(req.params.userId);
 
@@ -94,7 +107,7 @@ router.get('/:userId', async (req, res) => {
 });
 
 // Router to delete a user
-router.delete('/:userId', async (req, res) => {
+router.delete('/:userId', withAuth, async (req, res) => {
     try {
         const deletedUser = await User.destroy({
             where: {
@@ -109,13 +122,14 @@ router.delete('/:userId', async (req, res) => {
 });
 
 // Router to update a user's data
-router.put('/:userId', async (req, res) => {
+router.put('/:userId', withAuth, async (req, res) => {
     try {
         const updatedUser = await User.update(
             {
                 username: req.body.username,
                 email: req.body.email,
-                password: req.body.password,
+				password: req.body.password,
+				isAdmin: req.body.isAdmin,
             },
             {
                 where: {

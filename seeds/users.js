@@ -10,6 +10,7 @@ const userData = [
 		username: 'admin',
 		email: 'admin@gmail.com',
 		password: 'admin',
+		isAdmin: true,
 	}
 ];
 

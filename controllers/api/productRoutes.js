@@ -1,8 +1,9 @@
 const router = require('express').Router();
 const { Product } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 // The `/api/products` endpoint that returns all products in the api
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
 	try {
 		const productData = await Product.findAll();
 		res.status(200).json(productData);
@@ -26,7 +27,7 @@ router.get('/:id', async (req, res) => {
 });
 
 // Router for admin to update a product
-router.put('/:id', async (req, res) => {
+router.put('/:id', withAuth, async (req, res) => {
     try {
         const updatedProduct = await Product.update(
             {
@@ -51,7 +52,7 @@ router.put('/:id', async (req, res) => {
 });
 
 // Router for admin to delete a product
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', withAuth, async (req, res) => {
     try {
         const deletedProduct = await Product.destroy({
             where: {
@@ -65,7 +66,7 @@ router.delete('/:id', async (req, res) => {
     }
 });
 
-router.post('/', async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
 	try {
 		const productData = await Product.create({
 			product_name: req.body.product_name,

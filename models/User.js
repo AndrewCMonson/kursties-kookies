@@ -2,6 +2,7 @@ const { DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 const bcrypt = require('bcrypt');
 
+
 const User = sequelize.define(
 	'user',
 	{
@@ -31,6 +32,12 @@ const User = sequelize.define(
 				len: [8],
 			},
 		},
+		isAdmin: {
+			type: DataTypes.BOOLEAN,
+			allowNull: false,
+			defaultValue: false,
+		},
+		
 	},
 	{
 		hooks: {
