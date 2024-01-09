@@ -20,9 +20,7 @@ const handleLogOut = async event => {
 };
 
 // logs out the user and redirects to login page. if logout fails, prompts user with a modal to try again or contact support via the logOutFail method
-const logOut = async event => {
-	event.preventDefault();
-
+const logOut = async () => {
 	const response = await fetch('/api/users/logout', {
 		method: 'POST',
 		headers: { 'Content-Type': 'application/json' },
@@ -57,6 +55,6 @@ const logOutFail = () => {
 	modalClose.addEventListener('click', () => {
 		logOutModal.hide();
 	});
-}
+};
 
 document.querySelector('#logout').addEventListener('click', handleLogOut);

@@ -84,17 +84,25 @@ router.get('/cart', async (req, res) => {
 		}
 
 		const userCart = user.cart.products;
+
+		const cartSubTotal = userCart.reduce((total, product) => {
+			return total + product.price * product.CartItem.quantity;
+		}, 0);
+
+		const cartTotal = (cartSubTotal * 1.07).toFixed(2);
+
 		const renderedCartItems = userCart.map(product =>
 			product.get({ plain: true })
 		);
 
-		res.render('cart', { renderedCartItems, loggedIn: req.session.loggedIn });
+		res.render('cart', { renderedCartItems, loggedIn: req.session.loggedIn, cartTotal });
 	} catch (error) {
 		console.error(error);
 		res.status(500).json({ error: 'Internal server error' });
 	}
 });
 
+// redirects a user to the signup page if they are currently logged in and try to access the signup page
 router.get('/signup', (req, res) => {
 	if (req.session.loggedIn) {
 		res.redirect('/');

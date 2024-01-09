@@ -1,23 +1,15 @@
 body {
 	background-color: #FAF9F6;
-	color: #e3b6be;
 }
+
 a {
     color: #e3b6be; 
 }
 
-a:hover {
-    color: rgba(255, 255, 255, 0.1); 
-}
 
-a:visited {
-    color: #e3b6be; 
-}
-p {
-    color: #e3b6be; 
-}
-.form-text{
-color:#e3b6be;
+a:hover {
+	text-decoration: none;
+	color: grey;
 }
 
 .list-group-item {
@@ -44,9 +36,10 @@ color:#e3b6be;
 .carousel-title,
 .carousel-text {
 	color: #fff;
-    text-shadow: 2px 2px 4px #000000;
+	text-shadow: 2px 2px 4px #000000;
 }
-#logOutModalBody {
+#logOutModalBody,
+#cartDeleteModalBody {
 	display: none;
 }
 footer {
@@ -60,8 +53,5 @@ footer {
 	.hiddenDiv {
 		display: none;
 	}
-	.sign-up-form {
-		width: 100%;
-	}
+	
 }
-
