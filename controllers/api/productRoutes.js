@@ -25,4 +25,60 @@ router.get('/:id', async (req, res) => {
 	}
 });
 
+// Router for admin to update a product
+router.put('/:id', async (req, res) => {
+    try {
+        const updatedProduct = await Product.update(
+            {
+            product_name: req.body.product_name,
+			price: req.body.price,
+			stock: req.body.stock,
+			filename: req.body.filename,
+			featured: req.body.featured,
+			description: req.body.description,
+            },
+            {
+                where: {
+                    id: req.params.id,
+                },
+            }
+        );
+        res.status(200).json({ message: 'Product updated' });
+    }
+    catch (err) {
+        res.status(400).json(err);
+    }
+});
+
+// Router for admin to delete a product
+router.delete('/:id', async (req, res) => {
+    try {
+        const deletedProduct = await Product.destroy({
+            where: {
+                id: req.params.id,
+            },
+        });
+        res.status(200).json({ message: 'Product deleted' });
+    }
+    catch (err) {
+        res.status(400).json(err);
+    }
+});
+
+router.post('/', async (req, res) => {
+	try {
+		const productData = await Product.create({
+			product_name: req.body.product_name,
+			price: req.body.price,
+			stock: req.body.stock,
+			filename: req.body.filename,
+			featured: req.body.featured,
+			description: req.body.description,
+		});
+		res.status(200).json(productData);
+	} catch (err) {
+		res.status(400).json(err);
+	}
+});
+
 module.exports = router;
