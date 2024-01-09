@@ -43,7 +43,7 @@ router.put('/:id', async (req, res) => {
                 },
             }
         );
-        res.status(200).json({ message: 'Product updated' });
+        res.status(200).json({ product: updatedProduct, message: 'Product updated' });
     }
     catch (err) {
         res.status(400).json(err);
@@ -58,7 +58,7 @@ router.delete('/:id', async (req, res) => {
                 id: req.params.id,
             },
         });
-        res.status(200).json({ message: 'Product deleted' });
+        res.status(200).json({ product: deletedProduct, message: 'Product deleted' });
     }
     catch (err) {
         res.status(400).json(err);
