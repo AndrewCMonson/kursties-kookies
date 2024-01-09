@@ -26,11 +26,9 @@ router.post('/send', async (req, res) => {
 
         const info = await transporter.sendMail(mailObject);
 
-        console.log('Message sent: %s', info.messageId);
         res.status(200).json(info);
     }
     catch (err) {
-        console.log(err);
         res.status(500).json(err);
     }
 });
