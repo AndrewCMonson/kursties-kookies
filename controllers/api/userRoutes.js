@@ -93,6 +93,46 @@ router.get('/:userId', async (req, res) => {
 	}
 });
 
+// Router to delete a user
+router.delete('/:userId', async (req, res) => {
+    try {
+        const deletedUser = await User.destroy({
+            where: {
+                id: req.params.userId,
+            },
+        });
+        res.status(200).json({ message: 'User deleted' });
+    }
+    catch (err) {
+        res.status(400).json(err);
+    }
+});
+
+// Router to update a user's data
+router.put('/:userId', async (req, res) => {
+    try {
+        const updatedUser = await User.update(
+            {
+                username: req.body.username,
+                email: req.body.email,
+                password: req.body.password,
+            },
+            {
+                where: {
+                    id: req.params.userId,
+                },
+            }
+        );
+        res.status(200).json({ message: 'User updated' });
+    }
+    catch (err) {
+        res.status(400).json(err);
+    }
+});
+
+
+
+
 router.get('/:username', async (req, res) => {
 	try {
 		const userData = await User.findOne({

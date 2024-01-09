@@ -32,6 +32,7 @@ This project is licensed under the (![license](https://img.shields.io/badge/lice
 ## Questions
 
 For additional questions, you can reach us through:
+
 - Github: [AndrewCMonson](https://github.com/AndrewCMonson)
 - Email: andrewmonsondev@gmail.com
 - LinkedIn: [Andrew Monson](https://linkedin.com/in/andrew-c-monson)
@@ -40,4 +41,4 @@ For additional questions, you can reach us through:
 
 ---
 
-You can reach me via email or on LinkedIn - Kurstie DeHaven
+You can reach us via email or on LinkedIn
