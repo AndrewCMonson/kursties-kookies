@@ -1,6 +1,5 @@
 const router = require('express').Router();
 const { User, Cart, Product, CartItem } = require('../../models');
-// const productController = require('../../controllers/productController');
 
 // allows a user to sign up and creates a corresponding cart for the user
 router.post('/', async (req, res) => {
