@@ -1,18 +1,41 @@
 
-
+body {
+	color:#e3b6be;
+}
 a {
 	text-decoration: none;
-	color: black;
+	color: #e3b6be;
 }
-
-
+	.custom-title {
+		font-size: 2rem; 
+	}
+p {
+	color:#e3b6be;
+}
+#emailHelp {
+    color: #e3b6be; 
+}
+.navbar-nav .nav-link {
+    color: #e3b6be; 
+	transition: color 0.5s;
+}
+.navbar-nav .nav-link:hover {
+    color: rgb(224, 224, 224); 
+}
+.navbar-brand {
+    color: #fff; 
+}
+.btn-outline-dark {
+   color:#e3b6be;
+}
 a:hover {
 	text-decoration: none;
 	color: grey;
 }
-
-
-
+.homepage h1,
+.homepage a {
+    color: #e3b6be; 
+}
 .homepage {
 	animation: fadeIn 2s;
 	-webkit-animation: fadeIn 2s;
@@ -20,7 +43,24 @@ a:hover {
 	-o-animation: fadeIn 2s;
 	-ms-animation: fadeIn 2s;
 }
-
+.addToCartButton {
+    color: #e3b6be; 
+    border-color: #e3b6be; 
+}
+.addToCartButton:hover {
+    color:white; 
+    border-color: #e3b6be; 
+    background-color: #6c757d; 
+}
+.remove-from-cart {
+    color: #6c757d; 
+    border-color: #ace7ef; 
+}
+.remove-from-cart:hover {
+    color: #6c757d; 
+    background-color: #ace7ef; 
+    border-color: #ace7ef; 
+}
 @keyframes fadeIn {
 	0% {
 		opacity: 0;
@@ -29,7 +69,6 @@ a:hover {
 		opacity: 1;
 	}
 }
-
 @-moz-keyframes fadeIn {
 	0% {
 		opacity: 0;
@@ -38,7 +77,6 @@ a:hover {
 		opacity: 1;
 	}
 }
-
 @-webkit-keyframes fadeIn {
 	0% {
 		opacity: 0;
@@ -47,7 +85,6 @@ a:hover {
 		opacity: 1;
 	}
 }
-
 @-o-keyframes fadeIn {
 	0% {
 		opacity: 0;
@@ -56,7 +93,6 @@ a:hover {
 		opacity: 1;
 	}
 }
-
 @-ms-keyframes fadeIn {
 	0% {
 		opacity: 0;
@@ -65,25 +101,23 @@ a:hover {
 		opacity: 1;
 	}
 }
-
 .productImage:hover {
 	background-color: black;
 	opacity: 0.5;
 }
-
+.list-group-item {
+	color:#e3b6be
+}
 .checkout-list {
 	max-height: 25%;
 }
-
 .cookie-img {
 	border: solid 0.5px black;
 	border-radius: 2%;
 }
-
 .carousel {
 	width: 100%;
 }
-
 .carousel-title,
 .carousel-text {
 	color: #fff;
@@ -92,6 +126,15 @@ a:hover {
 #logOutModalBody,
 #cartDeleteModalBody {
 	display: none;
+}
+footer {
+    height: 90px; 
+	padding: 10px;
+	text-align: center;
+	 
+	}
+.footer-border p {
+	border-top:1px solid #fff;
 }
 
 @media screen and (max-width: 640px) {
