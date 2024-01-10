@@ -1,35 +1,28 @@
 # Kurstie's Kookies 🍪
 ## Description
 
-Our Project is an E-Commerce bakery site. Kurstie's Kookies is a web application where you can shop for baked goods. You have to sign in to unlock a world of sweet surprises! We have a user-friendly authentication system ensures that your journey Kurstie's Kookies is personalized and secure. Once signed in, you gain access to exclusive prices, special promotions, and the ability to receive enticing prices.
+Kurstie's Kookies is a web application where you can shop for baked goods. Each user can login to an individualized account, browse their favorite treats and choose which ones they'd like to buy and add to their cart.
 
 ## Table of Contents
 <details>
   <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
+    <li><a href="#deployed-application">Deployed Application<a></li>
+    <li><a href="#technologies-used">Installation</a></li>
     <li><a href="#usage">Usage</a></li>
     <li><a href="#contributions">Contributions</a></li>
     <li><a href="#license">License</a></li>
+    <li><a href=#about-the-team>About the Team</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
 
-## Installation
+## Deployed Application
 
-1. Clone the repo
-   ```sh
-   git clone git@github.com:AndrewCMonson/kursties-kookies.git
-   ```
-2. Install NPM packages
-  ```sh
-  npm instal
-  ```
+You can find the deployed application here: [Kurstie's Kookies](https://infinite-depths-65606-d9aa1a1e89cd.herokuapp.com/)
+
+## Technologies Used
+
+Kurstie's Kookies was built using Node.js, Express, Handlebars.js, MySQL and Bootstrap. Additional technologies used include Nodemailer, bCrypt for password hashing and Sequelize for DB modeling. It is deployed via Heroku.
 
 
 ## Usage
@@ -48,9 +41,13 @@ Contributions are what make the open source community an amazing place to learn 
 
 ## License
 
-This project is licensed under the (![license](https://img.shields.io/badge/license-MIT-blue)(https://shields.io)) license.
+This project is licensed under the (![license](https://img.shields.io/badge/license-MIT-blue)) license.
 
-## Questions
+## About the team
+
+Contributions to this application were made by Andrew Monson, Jose Silva, Ian Reynolds, Kurstie DeHaven and Chanel Scrivens. More information can be found on the contributions tab of this repository.
+
+## Contact
 
 For additional questions, you can reach us through:
 
@@ -59,6 +56,9 @@ For additional questions, you can reach us through:
 - LinkedIn: [Andrew Monson](https://linkedin.com/in/andrew-c-monson)
 - GitHub: [kurstiedehaven](https://github.com/kurstiedehaven)
 - Email: kurstiedehaven@gmail.com
+- Email: bluephoenix131@gmail.com
+- Email: Lil_bitty80@yahoo.com
+- Email: js38902@gmail.com
 
 ---
 
