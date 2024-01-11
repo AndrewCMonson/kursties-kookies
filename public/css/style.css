@@ -6,7 +6,7 @@ a {
 	text-decoration: none;
 	color: #e3b6be;
 }
-	.custom-title {
+.custom-title {
 		font-size: 2rem; 
 	}
 p {
@@ -42,6 +42,9 @@ a:hover {
 	-moz-animation: fadeIn 2s;
 	-o-animation: fadeIn 2s;
 	-ms-animation: fadeIn 2s;
+}
+.card-title:hover {
+	color:#6c757d;  
 }
 .addToCartButton {
     color: #e3b6be; 

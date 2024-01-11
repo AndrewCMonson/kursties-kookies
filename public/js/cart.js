@@ -37,10 +37,24 @@ const removeFromCart = async productId => {
 	});
 
 	if (response.ok) {
+		showDeleteSuccessModal();
 		document.location.reload();
 	} else {
 		removeFromCartFail();
 	}
+};
+const showDeleteSuccessModal = () => {
+	const deleteSuccessModal = new bootstrap.Modal(
+		document.getElementById('deleteSuccessModal'),
+		{
+			keyboard: false,
+		}
+	);
+	deleteSuccessModal.show();
+
+		setTimeout(() => {
+		deleteSuccessModal.hide();
+	}, 2000);
 };
 
 const handleDeleteItem = async event => {
