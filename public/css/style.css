@@ -11,28 +11,9 @@ a {
 p {
 	color:#e3b6be;
 }
-#emailHelp {
-    color: #e3b6be; 
-}
-.navbar-nav .nav-link {
-    color: #e3b6be; 
-	transition: color 0.5s;
-}
-.navbar-nav .nav-link:hover {
-    color: rgb(224, 224, 224); 
-}
-.navbar-brand {
-    color: #fff; 
-}
-.btn-outline-dark {
-   color:#e3b6be;
-}
 a:hover {
 	text-decoration: none;
 	color: grey;
-}
-p {
-	color: #e3b6be;
 }
 .custom-title {
 	font-size: 2rem;
