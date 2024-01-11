@@ -5,8 +5,6 @@ a {
 	text-decoration: none;
 	color: #e3b6be;
 }
-<<<<<<< HEAD
-=======
 .custom-title {
 		font-size: 2rem; 
 	}
@@ -29,7 +27,6 @@ p {
 .btn-outline-dark {
    color:#e3b6be;
 }
->>>>>>> 69416e8fd32f27cd51e2967ab8346619a594d30b
 a:hover {
 	text-decoration: none;
 	color: grey;
