@@ -5,6 +5,28 @@ a {
 	text-decoration: none;
 	color: #e3b6be;
 }
+.custom-title {
+		font-size: 2rem; 
+	}
+p {
+	color:#e3b6be;
+}
+#emailHelp {
+    color: #e3b6be; 
+}
+.navbar-nav .nav-link {
+    color: #e3b6be; 
+	transition: color 0.5s;
+}
+.navbar-nav .nav-link:hover {
+    color: rgb(224, 224, 224); 
+}
+.navbar-brand {
+    color: #fff; 
+}
+.btn-outline-dark {
+   color:#e3b6be;
+}
 a:hover {
 	text-decoration: none;
 	color: grey;
@@ -39,6 +61,9 @@ p {
 	-moz-animation: fadeIn 2s;
 	-o-animation: fadeIn 2s;
 	-ms-animation: fadeIn 2s;
+}
+.card-title:hover {
+	color:#6c757d;  
 }
 .addToCartButton {
 	color: #e3b6be;
