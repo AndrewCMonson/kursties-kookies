@@ -27,8 +27,6 @@ const addToCart = async event => {
 };
 
 const removeFromCart = async productId => {
-	// const productId = event.target.getAttribute('data-product-id');
-
 	const response = await fetch(`/api/users/cart/removeItem/${productId}`, {
 		method: 'DELETE',
 		headers: {
@@ -37,10 +35,27 @@ const removeFromCart = async productId => {
 	});
 
 	if (response.ok) {
-		document.location.reload();
+		showDeleteSuccessModal();
+		setTimeout(() => {
+			document.location.reload();
+		}, 2000);
 	} else {
 		removeFromCartFail();
 	}
+};
+
+const showDeleteSuccessModal = () => {
+	const deleteSuccessModal = new bootstrap.Modal(
+		document.getElementById('deleteSuccessModal'),
+		{
+			keyboard: false,
+		}
+	);
+	deleteSuccessModal.show();
+
+	setTimeout(() => {
+		deleteSuccessModal.hide();
+	}, 2000);
 };
 
 const handleDeleteItem = async event => {
@@ -60,6 +75,7 @@ const handleDeleteItem = async event => {
 	const cartDeleteReject = document.getElementById('cartDeleteReject');
 
 	cartDeleteConfirm.addEventListener('click', () => {
+		cartDeleteModal.hide();
 		removeFromCart(productId);
 	});
 	cartDeleteReject.addEventListener('click', () => {
