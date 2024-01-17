@@ -7,7 +7,7 @@ Kurstie's Kookies is a web application where you can shop for baked goods. Each 
 <details>
   <ol>
     <li><a href="#deployed-application">Deployed Application<a></li>
-    <li><a href="#technologies-used">Installation</a></li>
+    <li><a href="#technologies-used">Technologies Used</a></li>
     <li><a href="#usage">Usage</a></li>
     <li><a href="#contributions">Contributions</a></li>
     <li><a href="#license">License</a></li>
